@@ -101,9 +101,11 @@ public class GuestbookServiceImpl implements GuestbookService{
     /** 검색 */
     private BooleanBuilder getSearch(PageRequestDTO requestDTO) {
         String type = requestDTO.getType();
-        
+
+        // Querydsl을 사용하기 위해 BooleanBuilder를 생성
         BooleanBuilder booleanBuilder = new BooleanBuilder();
 
+        // 동적으로 처리하기 위해서 Q도메인 클래스를 얻어온다.(Entity를 바로 사용하기 위해)
         QGuestbook qGuestbook = QGuestbook.guestbook;
         
         String keyword = requestDTO.getKeyword();

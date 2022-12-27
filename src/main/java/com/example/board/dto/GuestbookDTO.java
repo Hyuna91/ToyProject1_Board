@@ -4,7 +4,7 @@ import lombok.*;
 
 import java.time.LocalDateTime;
 
-// GuestbookDTO는 Guestbook과 거의 동일한 필드들을 가지고 있고
+// GuestbookDTO는 Guestbook(Entity)과 거의 동일한 필드들을 가지고 있고
 // getter, setter를 통해 자유롭게 값을 변경할 수 있게 구성한다.
 // 서비스계층에서 사용
 
