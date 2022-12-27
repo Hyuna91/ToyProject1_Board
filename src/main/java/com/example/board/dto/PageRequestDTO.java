@@ -5,6 +5,9 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 
+import java.util.ArrayList;
+import java.util.stream.Collectors;
+
 @Builder
 @AllArgsConstructor
 @Data
@@ -24,9 +27,8 @@ public class PageRequestDTO {
         this.page = 1;
         this.size = 10;
     }
-    
+
     public Pageable getPageable(Sort sort) {
-    
         // JPA에서 page 번호가 0부터 시작하기 때문에 -1
         // sort는 별도의 파라미터로 받도록 설계
         return PageRequest.of(page -1, size, sort);

@@ -53,8 +53,13 @@ public class GuestbookServiceImpl implements GuestbookService{
         // Querydsl 사용
         Page<Guestbook> result = repository.findAll(booleanBuilder, pageable);
 
-        // entityToDTO를 이용하여 Function을 구성 
+        // entityToDTO를 이용하여 Function을 구성 (Method와 Function의 차이는)
         Function<Guestbook, GuestbookDTO> fn = (entity -> entityToDto(entity));
+
+        /** TODO : 여기 다시 보기 */
+//        Guestbook ge =  result.getContent().get(0);
+//        GuestbookDTO dto = new GuestbookDTO();
+//        dto.setGno(ge.getGno());
 
         // Page<Entity>와 Function의 결과 (result, fn)을 전달하여 엔티티 객체들을 DTO의 리스트로 변환
         return new PageResultDTO<>(result, fn);
