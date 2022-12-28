@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import javax.swing.*;
+import java.util.List;
 import java.util.Optional;
 import java.util.stream.IntStream;
 
@@ -46,5 +47,15 @@ public class ReplyRepositoryTests {
 
         System.out.println(reply);
         System.out.println(reply.getBoard());
+    }
+
+    /** 게시글 번호로 댓글 목록 가져오기 */
+    @Test
+    public void testListByBoard() {
+
+        List<Reply> replyList = replyRepository.getRepliesByBoardOrderByRno(Board.builder().bno(99L).build());
+
+        replyList.forEach(reply -> System.out.println(reply));
+
     }
 }
