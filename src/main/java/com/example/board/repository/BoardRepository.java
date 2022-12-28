@@ -1,6 +1,7 @@
 package com.example.board.repository;
 
 import com.example.board.entity.Board;
+import com.example.board.repository.search.SearchBoardRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -9,7 +10,7 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
-public interface BoardRepository extends JpaRepository<Board, Long> {
+public interface BoardRepository extends JpaRepository<Board, Long>, SearchBoardRepository {
 
     /** 엔티티 클래스 내부에 연관관계가 있는 경우 */
     /** JPQL을 사용하여 FetchType.LAZY를 사용해도 조인 처리가 되어 한 번에 board, member 테이블을 사용할 수 있다. */

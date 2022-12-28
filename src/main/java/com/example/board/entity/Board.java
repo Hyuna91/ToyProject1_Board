@@ -25,5 +25,14 @@ public class Board extends BaseEntity {
     // Lazy loading <-> Eager loading(연관관계가 있는 데이터를 모두 로딩)
     @ManyToOne (fetch = FetchType.LAZY)
     private Member writer;  // 연관관계 지정
-    
+
+    /** 수정 가능하게 설정 */
+    public void changeTitle(String title) {
+        this.title = title;
+    }
+
+    public void changeContent(String content) {
+        this.content = content;
+    }
+
 }

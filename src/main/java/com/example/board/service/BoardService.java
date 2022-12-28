@@ -12,7 +12,11 @@ public interface BoardService {
     /** 게시물 등록 */
     Long register(BoardDTO dto);
 
+    /** 게시물 리스트 받아오기 */
     PageResultDTO<BoardDTO, Object[]> getList(PageRequestDTO pageRequestDTO);
+
+    /** 게시물 조회 */
+    BoardDTO get(Long bno);
 
     /** 게시물 등록 시 사용할 메소드 */
     default Board dtoToEntity(BoardDTO dto) {
@@ -44,4 +48,10 @@ public interface BoardService {
 
         return boardDTO;
     }
+
+    /** 게시물 삭제 */
+    void removeWithReplies(Long bno);
+
+    /** 게시물 수정 : BoardDTO를 이용하여 수정 */
+    void modify(BoardDTO boardDTO);
 }
